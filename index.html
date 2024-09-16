@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Auto Ticket</title>
+    <meta name="description" content="Auto Ticket" />
+    <meta name="author" content="thaipham-coder" />
+
+    <meta property="og:title" content="Auto Ticket" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://phamhongthai.id.vn/" />
+    <meta
+      property="og:description"
+      content="An auto tool certificate generator"
+    />
+    <meta property="og:image" content="/public/image.png" />
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Dancing Script"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="//fonts.googleapis.com/css?family=Inter"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="./src/js/script.js"></script>
+  </head>
+  <body onload="onPageLoad()">
+    <main>
+      <div class="container">
+        <div class="input-row justify-center">
+          <div class="row-name flex">
+            <input
+              class="full_name"
+              id="id_input_name"
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="Nhập tên..."
+              value="Họ và Tên"
+              onkeyup="updateCeritifcate()"
+              autofocus
+            />
+            <input
+              type="file"
+              id="id_file_up"
+              accept="image/*"
+              onchange="onInputFileChange()"
+              hidden
+            />
+            <label class="upload_btn" for="id_file_up" id="id_upload"
+              ><i class="fa fa-cloud-upload" aria-hidden="true"></i>&nbsp;Upload
+              avatar</label
+            >
+          </div>
+        </div>
+        <div class="canvas-area">
+          <div class="flex canvas-row justify-center">
+            <div class="left flex flex-column justify-center align-center">
+              <input
+                type="range"
+                min="1"
+                max="100"
+                step="1"
+                value="50"
+                class="vertical_silder"
+                id="id_zoom"
+                oninput="updateCeritifcate()"
+                onchange="updateCeritifcate()"
+              />
+              <label for="id_zoom" id="label-zoom"
+                ><i class="fa fa-search-plus" aria-hidden="true"></i
+                >&nbsp;Zoom</label
+              >
+            </div>
+
+            <canvas id="id_main_canvas" width="1979" height="1979"></canvas>
+
+            <div class="right flex flex-column justify-center align-center">
+              <input
+                type="range"
+                min="1"
+                max="100"
+                step="1"
+                value="50"
+                class="vertical_silder"
+                id="id_height_pos"
+                oninput="updateCeritifcate()"
+                onchange="updateCeritifcate()"
+              />
+              <label for="id_height_pos" id="label-height"
+                ><i class="fa fa-arrows-v" aria-hidden="true"></i>&nbsp;Chiều
+                dọc</label
+              >
+            </div>
+          </div>
+          <div class="horizontal flex flex-column justify-center align-center">
+            <input
+              type="range"
+              min="1"
+              max="100"
+              step="1"
+              value="50"
+              class="slider"
+              id="id_width_pos"
+              oninput="updateCeritifcate()"
+              onchange="updateCeritifcate()"
+            />
+            <label for="id_width_pos" id="label-width"
+              ><i class="fa fa-arrows-h" aria-hidden="true"></i>&nbsp;Chiều
+              ngang</label
+            >
+          </div>
+        </div>
+        <div class="download-btn flex justify-center">
+          <button id="id_download" hidden onclick="onDownloadClick()">
+            Download
+          </button>
+          <label class="upload_btn" for="id_download" id="download"
+            ><i class="fa fa-download"></i>&nbsp;Download</label
+          >
+        </div>
+        <img
+          class="hidden_img"
+          id="id_img_avatar"
+          src="./public/images/avatar.jpg"
+          onload="updateCeritifcate()"
+        />
+        <img
+          class="hidden_img"
+          id="id_img_background"
+          src="./public/images/certificate.png"
+          onload="updateCeritifcate()"
+        />
+        <input
+          class="hidden_img"
+          type="range"
+          min="1"
+          max="100"
+          step="1"
+          value="50"
+          id="id_expect_width"
+          oninput="updateCeritifcate()"
+          onchange="updateCeritifcate()"
+        />
+      </div>
+    </main>
+    <footer>
+      <div class="footer-area">
+        <span
+          >Copyright &copy; 2024, designed by
+          <a href="https://github.com/thaipham-coder" target="_blank"
+            >PHAM HONG THAI</a
+          ></span
+        >
+      </div>
+    </footer>
+  </body>
+</html>
